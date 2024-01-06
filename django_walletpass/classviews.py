@@ -99,8 +99,6 @@ class RegisterPassViewSet(viewsets.ViewSet):
             device_library_identifier=device_library_id,
             pazz=pass_,
         )
-        if registration:
-            return Response({}, status=status.HTTP_200_OK)
         registration.delete()
         PASS_UNREGISTERED.send(sender=pass_)
         return Response({}, status=status.HTTP_200_OK)
