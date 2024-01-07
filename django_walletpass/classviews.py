@@ -100,7 +100,7 @@ class RegisterPassViewSet(viewsets.ViewSet):
             pazz=pass_,
         )
         registration.delete()
-        registration.pazz.delete()
+        pass_.delete()
         PASS_UNREGISTERED.send(sender=pass_)
         return Response({}, status=status.HTTP_200_OK)
 
